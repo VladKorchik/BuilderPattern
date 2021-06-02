@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Person {
     protected final String name;
     protected final String surname;
-    protected int age;
+    protected Integer age;
     protected String adress;
 
     public Person(String name, String surname) {
@@ -13,13 +13,13 @@ public class Person {
         this.surname = surname;
     }
 
-    public Person(String name, String surname, int age) {
+    public Person(String name, String surname, Integer age) {
         this.name = name;
         this.surname = surname;
         this.age = age;
     }
 
-    public Person(String name, String surname, int age, String adress) {
+    public Person(String name, String surname, Integer age, String adress) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -27,12 +27,12 @@ public class Person {
     }
 
     public boolean hasAge() {
-        if (age == 999) return false;
+        if (age == null) return false;
         else return true;
     }
 
     public boolean hasAddress() {
-        if (adress.equals(null)) return false;
+        if (adress == null) return false;
         else return true;
     }
 
@@ -49,8 +49,7 @@ public class Person {
     }
 
     public String getAddress() {
-        if (hasAddress()) return adress;
-        else return null;
+        return adress;
     }
 
     public String setAddress(String city) {

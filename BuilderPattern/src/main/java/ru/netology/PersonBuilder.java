@@ -3,7 +3,7 @@ package ru.netology;
 public class PersonBuilder {
     private String name;
     private String surname;
-    private int age = 999;
+    private Integer age;
     private String adress;
 
     public PersonBuilder setName(String name) {
@@ -29,7 +29,9 @@ public class PersonBuilder {
     public Person build() {
         if  (name == null || surname == null) {
             throw new IllegalArgumentException("Bad request: check input data (name or surname)");
-        }   if ( age < -1 || age > 1000) {
+        }   if (age == null) {
+            return new Person(name, surname, null, adress);
+        }   if ( age < 0 || age > 300 ) {
             throw new IllegalArgumentException("Bad request: check input data (age)");
         }   else {
             return new Person(name, surname, age, adress);
